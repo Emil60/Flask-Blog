@@ -1,0 +1,50 @@
+{%  extends 'base.html'%}
+{% block content %}
+
+<!-- Page Content -->
+<div class="container">
+
+    
+    <!-- Contact Form -->
+    <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+    <div class="row">
+      <div class="col-lg-8 mb-4">
+        <h3>Create post</h3>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Title:</label>
+              {{ form.title(placeholder='Title', class='form-control') }}
+              <p class="help-block"></p>
+            </div>
+          </div>
+          
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Subtitle:</label>
+              {{ form.subtitle(placeholder='Subtitle', class='form-control') }}            
+            </div>
+          </div>
+          
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Text:</label>
+              {{ form.post_text(placeholder='What do you think', class='form-control') }}            
+            </div>
+          </div>
+          <div id="success"></div>
+          <!-- For success/fail messages -->
+          {{ form.submit(class='btn btn-primary') }}    
+        </form>
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+
+
+{% endblock %}

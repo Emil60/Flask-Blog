@@ -1,0 +1,65 @@
+{%  extends 'base.html'%}
+
+
+{% block content %}
+
+  
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <h1 class="my-4">Welcome to Modern Business</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+                
+        {% for category, message in messages %}
+          <div class="alert alert-{{category}}">
+            {{message}}
+          </div>
+        {% endfor %}
+          
+      {% endif %}
+    {% endwith %}
+    <!-- Marketing Icons Section -->
+    <div class="row">
+      
+
+        {% for post in posts.items %}
+      <div class="col-lg-4 mb-4">
+        
+        <div class="card h-100">
+          <h4 class="card-header">{{post.title}}</h4>
+         
+          <div class="card-body">
+            
+            <p class="card-text">{{post.subtitle}}</p>
+          </div>
+          <div class="card-footer">
+            <a href="{{url_for('post',post_id=post.id)}}" class="btn btn-primary">Learn More</a>
+            <p class="float-right"> {{post.post_date.strftime('%d-%B-%Y')}}</p>
+              <p>Posted by {{post.user.name}}</p>
+          </div>
+        </div>
+        
+      </div>
+      
+      {% endfor %}
+      <div class="clearfix">
+        {% if next_url %}
+          <a href="{{ next_url }}" class="btn btn-primary float-right">Next Page</a>
+        {% endif %}
+        {% if prev_url %}
+          <a href="{{ prev_url }}" class="btn btn-primary float-right">Previous Page</a>
+        {% endif %}
+      </div>
+      </div>
+    </div>
+    
+    
+
+  </div>
+  <!-- /.container -->
+
+
+
+{% endblock %}

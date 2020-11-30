@@ -1,0 +1,50 @@
+{%  extends 'base.html'%}
+{% block content %}
+
+<!-- Page Content -->
+<div class="container">
+
+    
+    <!-- Contact Form -->
+    <!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+    <div class="row">
+      <div class="col-lg-8 mb-4">
+        <h3>Register</h3>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Full Name:</label>
+              {{ form.name(placeholder='Name', class='form-control') }}
+              <p class="help-block"></p>
+            </div>
+          </div>
+          
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Email Address:</label>
+              {{ form.email(placeholder='E-mail', class='form-control') }}            
+            </div>
+          </div>
+          
+          <div class="control-group form-group">
+            <div class="controls">
+              <label>Password:</label>
+              {{ form.password(placeholder='Password', class='form-control') }}            
+            </div>
+          </div>
+          <div id="success"></div>
+          <!-- For success/fail messages -->
+          {{ form.submit(class='btn btn-primary') }}    
+        </form>
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+
+
+{% endblock %}
