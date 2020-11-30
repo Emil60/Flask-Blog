@@ -23,10 +23,10 @@ def contact():
     form = ContactForm()
     if request.method == "POST":
         if form.validate_on_submit():
-            msg = Message(form.email.data, sender='me', recipients=['fakefake1478@gmail.com'])
+            msg = Message(form.email.data, sender='me', recipients=['email you want to send email'])
             msg.body = "From: {} <{}> {}".format(form.email.data, form.number.data, form.message.data)
             mail.send(msg)
-            flash("Zorsan", "success")
+            flash("mail sent", "success")
             return redirect(url_for('contact'))
         else:
             flash("OOPS", "danger")
